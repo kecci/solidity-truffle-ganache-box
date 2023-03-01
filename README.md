@@ -1,9 +1,15 @@
 # solidity-truffle-ganache-remix
 
-Step-by-step install simulator for VM ethereum blockchain with Ganache and MetaMask. Then implement Smart Contract Solidity to Ganache.
+Part 2: Step-by-step install simulator for VM ethereum blockchain with Ganache and MetaMask. Then implement Smart Contract Solidity to Ganache.
+
+## Step Parts
+- Part 1: https://github.com/kecci/solidity-remix-basic
+- Part 2: https://github.com/kecci/solidity-truffle-ganache-remix  (you in here)
+- Part 3: https://github.com/kecci/solidity-react-truffle-box
 
 ## Table of Contents
 - [solidity-truffle-ganache-remix](#solidity-truffle-ganache-remix)
+  - [Step Parts](#step-parts)
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Metamask](#metamask)
@@ -16,6 +22,7 @@ Step-by-step install simulator for VM ethereum blockchain with Ganache and MetaM
     - [Import Ganache Account to Metamask](#import-ganache-account-to-metamask)
     - [Send ETH between Account](#send-eth-between-account)
   - [Smart Contract Remix to Ganache](#smart-contract-remix-to-ganache)
+  - [Next](#next)
 
 
 ## Introduction
@@ -86,4 +93,10 @@ Follow these steps:
 6. Congratulations, we have successfully send the coin ! You can see also in Ganache Balance are updated. ![img](assets/ganache-after-transaction.png)
 
 ## Smart Contract Remix to Ganache
+
 TBD
+
+[Connecting Smart Contract in Remix to Ganache](https://www.youtube.com/watch?v=fRl2UA4S6dE&list=PLH1gH0TmFBBhvZi4kEqU6kCjyv_y8qBae&index=34)
+
+## Next 
+After we know the simulation of blockchain with Ganache and the Connecting Smart Contract. Next step : https://github.com/kecci/solidity-react-truffle-box
