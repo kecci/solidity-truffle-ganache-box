@@ -2,7 +2,7 @@
 
 Chapter 2: Step-by-step install simulator for VM ethereum blockchain with Ganache and MetaMask. Then implement Smart Contract Solidity to Ganache.
 
-## Step Parts
+## The Chapter
 - Chapter 1: https://github.com/kecci/solidity-remix-basic
 - Chapter 2: https://github.com/kecci/solidity-truffle-ganache-remix  (you in here)
 - Chapter 3: https://github.com/kecci/solidity-react-truffle-box
