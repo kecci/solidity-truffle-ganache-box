@@ -94,9 +94,50 @@ Follow these steps:
 
 ## Smart Contract Remix to Ganache
 
-TBD
+First, we need to create the smart contract.
+```solidity
+pragma solidity >=0.7.0 <0.9.0;
+
+contract ProofOfExistence {
+    mapping (bytes32 => bool) private proofs;
+
+    function storeProof(bytes32 proof) public {
+        proofs[proof] = true;
+    }
+
+    function proofFor(string memory document) private pure returns (bytes32) {
+        return sha256(bytes(document));
+    }
+
+    function notarize(string memory document) public {
+        storeProof(proofFor(document));
+    }
+
+    function checkDocument(string memory document) public view returns (bool) {
+        return proofs[proofFor(document)];
+    }
+}
+```
+
+Step to deploy the contract:
+1. Run the `Ganache` and choose `Quick Start`. Then we see the accounts ![img](assets/ganache-account.png)
+2. Open Remix Browser, and select the localhost. ![img](assets/remix-local.png)
+3. In Remix, open tab Deploy then choose Environment `External HTTP Provider`. ![img](assets/remix-external-http-provider.png)
+4. Update the url & port to follow the Ganache `RPC Server`. Which in this case is `http://127.0.0.1:7545` ![img](assets/ganache-rpc-server.png)
+5. After connected, we've got the same account in `remix account` and `ganache account`. ![img](assets/remix-account-same.png) ![img](assets/ganache-account-same.png)
+6. In Remix, we `Deploy` the smart contract to some account. And we can see the contract. ![img](assets/remix-deployed.png)
+7. In Ganache, we can see our contract in `Blocks` tab: ![img](assets/ganache-deployed-blocks.png) And in the `Transactions` tab: ![img](assets/ganache-deployed-transactions.png)
+
+After deployed, Step to transaction:
+1. Create a transaction, Call `notarize` with input `"Hello"`: ![img](assets/remix-transaction-notarize.png) We can see the transaction hash and the detail.
+2. Then we can see in ganache transaction has been called, and the transaction hash is same like above. ![img](assets/ganache-transaction-notarize.png)
+3. After that, we want to make sure that the transaction are legit. We can call the `checkDocument` with `"Hello"`: ![img](assets/remix-transaction-checkDocument.png) The response are valid true and the details are same like in Ganache transaction. **When only checking the transaction, there is no adding block / transaction**.
+
+> Notes:
+> - In create new transactions, it will be adding new blocks.
+> - But in check the transaction, it won't be adding any blocks.
 
 [Connecting Smart Contract in Remix to Ganache](https://www.youtube.com/watch?v=fRl2UA4S6dE&list=PLH1gH0TmFBBhvZi4kEqU6kCjyv_y8qBae&index=34)
 
 ## Next 
-After we know the simulation of blockchain with Ganache and the Connecting Smart Contract. Next step : https://github.com/kecci/solidity-react-truffle-box
+After we know the simulation of blockchain with Ganache and the Connecting Solidity Smart Contract. Next chapter is: [Building Simple Decentralized Application with React and Truffle Box](https://github.com/kecci/solidity-react-truffle-box)
